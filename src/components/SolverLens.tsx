@@ -1,22 +1,47 @@
 import { Boxes, CheckCircle2, Gauge, TimerReset } from "lucide-react";
-import type { DemoScenario } from "../types";
+import type { DemoScenario, QuoteResult } from "../types";
 import { createSolverQuotes } from "../data/mockQuote";
+import { compactAddress } from "../utils/interoperableAddress";
+import { formatQuoteExpiry } from "../utils/time";
 
 type Props = {
   scenario: DemoScenario;
+  quoteResult: QuoteResult | null;
 };
 
-export function SolverLens({ scenario }: Props) {
+export function SolverLens({ scenario, quoteResult }: Props) {
   const solvers = createSolverQuotes(scenario);
+  const quote = quoteResult?.quotes[0] ?? null;
+  const solverSignal = quote?.metadata.exclusiveFor ? compactAddress(quote.metadata.exclusiveFor) : "Request a quote to inspect";
 
   return (
     <section className="panel solver-panel" aria-labelledby="solver-title">
       <div className="section-heading">
         <div>
           <p className="eyebrow">Step 5</p>
-          <h2 id="solver-title">Think like a solver</h2>
+          <h2 id="solver-title">Illustrative solver lens</h2>
         </div>
         <Boxes aria-hidden="true" />
+      </div>
+
+      <p className="panel-intro">
+        The cards below are mock solver profiles for teaching. The live quote signal is pulled from the
+        quote response when one is available.
+      </p>
+
+      <div className="live-solver-strip">
+        <div>
+          <span>Live quote source</span>
+          <strong>{quoteResult ? (quoteResult.source === "live" ? "LI.FI order server" : "Demo fallback") : "Not requested yet"}</strong>
+        </div>
+        <div>
+          <span>exclusiveFor</span>
+          <strong>{solverSignal}</strong>
+        </div>
+        <div>
+          <span>validUntil</span>
+          <strong>{quote ? formatQuoteExpiry(quote.validUntil) : "Request a quote first"}</strong>
+        </div>
       </div>
 
       <div className="solver-grid">

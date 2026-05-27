@@ -2,6 +2,7 @@ import { AlertCircle, CheckCircle2, Info, Loader2, RadioTower, ShieldCheck } fro
 import type { QuoteResult } from "../types";
 import { quoteSummary } from "../data/mockQuote";
 import { compactAddress } from "../utils/interoperableAddress";
+import { formatQuoteExpiry } from "../utils/time";
 
 type Props = {
   quoteResult: QuoteResult | null;
@@ -58,7 +59,7 @@ export function QuoteInspector({ quoteResult, isLoading, onRequestQuote }: Props
             </div>
             <div className="quote-metric">
               <span>validUntil</span>
-              <strong>{new Date(quote.validUntil * 1000).toLocaleTimeString()}</strong>
+              <strong>{formatQuoteExpiry(quote.validUntil)}</strong>
             </div>
             <div className="quote-metric">
               <span>exclusiveFor</span>

@@ -4,6 +4,11 @@ A lightweight LI.FI Intents developer education demo for the LI.FI Builders mini
 
 The demo shows how a cross-chain desired outcome becomes a LI.FI Intents quote, how developers can inspect the quote response, and how the order lifecycle moves through solver delivery and settlement.
 
+## Live Demo
+
+- Demo: https://intentflow-inspector.intentflow-inspector.workers.dev/
+- Repository: https://github.com/pillowtalk-Qy/intentflow-inspector
+
 ## What This Demonstrates
 
 - How to structure a `POST https://order.li.fi/quote/request` payload.
@@ -17,9 +22,9 @@ The demo shows how a cross-chain desired outcome becomes a LI.FI Intents quote, 
 
 ## Demo Story
 
-The main scenario is a stablecoin checkout:
+The main scenario is a merchant invoice settlement flow:
 
-> A buyer has USDC on Base. A merchant wants to receive USDC on Arbitrum. Instead of asking the buyer to choose a bridge route, the app asks LI.FI Intents for an outcome-based quote and lets solvers compete to deliver the result.
+> A buyer pays a 10 USDC invoice from Base. The merchant wants the received funds on Arbitrum for treasury and payout operations. Instead of asking the buyer to choose a bridge route, the app asks LI.FI Intents for an outcome-based quote and lets solvers compete to deliver the result.
 
 Two additional scenarios are included:
 
@@ -114,7 +119,7 @@ If the live order server, network, or route is unavailable, the demo switches to
 - Quote Inspector: request a live quote, inspect the best quote, and understand key fields.
 - Export Explanation: turn a quote into thread-ready teaching copy.
 - Lifecycle Timeline: simulate the intent flow from quote to settlement.
-- Solver Lens: explain solver fees, inventory, and availability.
+- Solver Lens: compare live quote solver signals with illustrative mock solver cards for fees, inventory, and availability.
 - Failure Lab: teach the no-quote path instead of hiding it.
 - Architecture Map: connect the user, order server, solver, verification, and settlement stages.
 - Builder Handoff: copy `curl` and TypeScript integration snippets.
@@ -126,6 +131,7 @@ If the live order server, network, or route is unavailable, the demo switches to
 - The best quote is shown from `quotes[0]`.
 - The live quote request has an 8 second timeout so the UI never hangs during judging.
 - The fallback quote is intentionally labeled so reviewers can distinguish live API output from demo data.
+- Solver Lens cards are illustrative mock data; live quote source, `exclusiveFor`, and `validUntil` are shown separately when a quote is available.
 - The demo does not submit or sign an order. It focuses on education around quote construction, response inspection, lifecycle states, and solver matching.
 
 ## Submission Checklist
@@ -140,21 +146,23 @@ If the live order server, network, or route is unavailable, the demo switches to
 
 Keep the screen recording around 2-3 minutes.
 
-1. Show the stablecoin checkout scenario.
-2. Explain that the user describes the destination outcome instead of choosing a bridge.
+1. Show the merchant invoice scenario.
+2. Explain that the app describes the merchant's destination outcome instead of asking the buyer to choose a bridge.
 3. Open the generated quote request body.
 4. Request a quote and inspect the best quote at index `0`.
 5. Point out `quoteId`, expiry, output preview, selected solver metadata, partial fill, and failure handling.
 6. Run the lifecycle simulation: `Intent -> Quote -> Signed -> Delivered -> Settled`.
-7. Use Solver Lens to explain that solver standing quotes and inventory determine what can be filled.
+7. Use Solver Lens to compare the live quote signal with illustrative solver inventory and explain what can be filled.
 
 ## X Thread Draft
 
-1. I built IntentFlow Inspector, a small LI.FI Intents demo that shows how a cross-chain desired outcome becomes solver-filled execution.
-2. Scenario: a buyer pays USDC on Base, while a merchant receives USDC on Arbitrum. The app builds an exact-input intent instead of asking the user to choose a bridge route.
-3. The demo shows the quote request, best quote, `quoteId`, expiry, output preview, solver metadata, partial fills, and failure handling.
-4. It also visualizes the lifecycle: `Intent -> Quote -> Signed -> Delivered -> Settled`.
-5. Repo/demo/video links.
+1. I built IntentFlow Inspector for the LI.FI Intents launch: a small builder demo that turns a merchant invoice outcome into a live LI.FI Intents quote.
+2. Scenario: a buyer pays 10 USDC from Base, while the merchant wants settlement on Arbitrum. The UI builds an exact-input intent instead of asking the buyer to choose a bridge route.
+3. The inspector shows the request body, best quote at `quotes[0]`, `quoteId`, `validUntil`, output preview, exclusive solver signal, partial fills, and failure handling.
+4. I also added a lifecycle view, no-quote failure lab, illustrative solver lens, and copyable `curl` / TypeScript snippets so other builders can reuse the integration shape.
+5. Demo: https://intentflow-inspector.intentflow-inspector.workers.dev/
+6. Repo: https://github.com/pillowtalk-Qy/intentflow-inspector
+7. Walkthrough video: add your recording link here before posting.
 
 ## Official Resources
 

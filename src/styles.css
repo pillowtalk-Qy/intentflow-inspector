@@ -18,6 +18,7 @@
   --green: #18a67a;
   --amber: #b47818;
   --shadow: 0 20px 60px rgba(74, 90, 150, 0.12);
+  --hero-image: url("./assets/hero-intents.png");
 }
 
 * {
@@ -59,7 +60,7 @@ main {
   color: #ffffff;
   background:
     linear-gradient(110deg, rgba(29, 47, 88, 0.72), rgba(64, 63, 140, 0.2)),
-    url("/hero-intents.png");
+    var(--hero-image);
   background-position: center;
   background-size: cover;
   border: 1px solid rgba(198, 214, 255, 0.72);
@@ -159,7 +160,8 @@ h1 {
 
 .explainer-card p,
 .muted,
-.scenario-note {
+.scenario-note,
+.panel-intro {
   color: var(--muted);
   line-height: 1.55;
 }
@@ -337,6 +339,12 @@ h2 {
 
 .muted {
   margin-top: 8px;
+  font-size: 14px;
+}
+
+.panel-intro {
+  margin-top: 14px;
+  max-width: 760px;
   font-size: 14px;
 }
 
@@ -656,6 +664,36 @@ h2 {
   margin-top: 18px;
 }
 
+.live-solver-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.live-solver-strip div {
+  min-width: 0;
+  min-height: 82px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 12px;
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.live-solver-strip span {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.live-solver-strip strong {
+  overflow-wrap: anywhere;
+}
+
 .solver-card {
   padding: 16px;
   background: linear-gradient(135deg, #fbfdff, #f8f5ff);
@@ -885,6 +923,7 @@ dd {
   .workspace,
   .explainer-grid,
   .solver-grid,
+  .live-solver-strip,
   .insight-strip,
   .handoff-grid,
   .failure-grid,

@@ -1,4 +1,4 @@
-import { Github, Sparkles } from "lucide-react";
+import { BookOpen, Sparkles } from "lucide-react";
 import { useMemo, useState } from "react";
 import { buildIntentRequest, requestQuote } from "./api/lifi";
 import { ArchitectureMap } from "./components/ArchitectureMap";
@@ -62,7 +62,7 @@ export default function App() {
           </p>
         </div>
         <a className="repo-link" href="https://docs.li.fi/lifi-intents/introduction" target="_blank" rel="noreferrer">
-          <Github size={18} aria-hidden="true" />
+          <BookOpen size={18} aria-hidden="true" />
           Official docs
         </a>
       </header>
@@ -88,7 +88,7 @@ export default function App() {
         <QuoteInspector quoteResult={quoteResult} isLoading={isLoading} onRequestQuote={handleQuoteRequest} />
         <ExportExplanation scenario={scenario} quoteResult={quoteResult} />
         <LifecycleTimeline />
-        <SolverLens scenario={scenario} />
+        <SolverLens scenario={scenario} quoteResult={quoteResult} />
         <NoQuoteLab />
         <ArchitectureMap />
         <DeveloperHandoff request={intentRequest} />

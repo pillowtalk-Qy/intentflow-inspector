@@ -7,8 +7,8 @@ const merchantAddress = "0xB0B0000000000000000000000000000000000B0B";
 export const scenarios: DemoScenario[] = [
   {
     id: "checkout",
-    title: "Stablecoin checkout",
-    useCase: "Buyer pays from Base, merchant receives on Arbitrum.",
+    title: "Merchant invoice",
+    useCase: "A buyer pays a 10 USDC invoice on Base; the merchant settles on Arbitrum.",
     fromChain: base,
     toChain: arbitrum,
     fromToken: usdcBase,
@@ -17,7 +17,7 @@ export const scenarios: DemoScenario[] = [
     swapType: "exact-input",
     userAddress,
     receiverAddress: merchantAddress,
-    note: "Best for showing outcome-based checkout without asking the user to choose a bridge."
+    note: "Best for showing a payment flow where the product cares about the merchant's received outcome, not the bridge route."
   },
   {
     id: "repayment",

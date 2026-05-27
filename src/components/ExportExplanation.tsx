@@ -2,6 +2,7 @@ import { Clipboard, FileText, Megaphone } from "lucide-react";
 import type { DemoScenario, QuoteResult } from "../types";
 import { quoteSummary } from "../data/mockQuote";
 import { compactAddress } from "../utils/interoperableAddress";
+import { formatQuoteExpiry } from "../utils/time";
 
 type Props = {
   scenario: DemoScenario;
@@ -64,7 +65,7 @@ function buildExplanation(
   return [
     `IntentFlow Inspector traced ${source} for ${scenario.fromChain.name} ${scenario.fromToken.symbol} -> ${scenario.toChain.name} ${scenario.toToken.symbol}.`,
     `The intent is ${scenario.swapType}: ${inputText} becomes ${outputText}, with quoteId ${quote.quoteId}.`,
-    `The quote expires at ${new Date(quote.validUntil * 1000).toLocaleTimeString()} and uses failureHandling=${quote.failureHandling}.`,
+    `The quote expires at ${formatQuoteExpiry(quote.validUntil)} and uses failureHandling=${quote.failureHandling}.`,
     `Solver signal: ${solver}. The builder lesson is to treat quoteId, validUntil, preview.inputs, preview.outputs, and failureHandling as product-facing integration fields, not background JSON.`
   ].join("\n\n");
 }
