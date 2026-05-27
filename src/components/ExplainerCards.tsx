@@ -4,17 +4,17 @@ const cards = [
   {
     icon: Route,
     title: "Outcome-first UX",
-    text: "Users state what should arrive. The app does not expose bridge routing as a decision."
+    text: "The buyer starts with a desired merchant outcome, not a bridge route or manual chain path."
   },
   {
     icon: Braces,
-    title: "Developer-visible fields",
-    text: "The demo makes quoteId, expiry, preview outputs, partial fills, and failure handling inspectable."
+    title: "Live quote inspection",
+    text: "The demo turns quoteId, validUntil, preview outputs, exclusiveFor, and failure handling into readable fields."
   },
   {
     icon: BookOpenCheck,
-    title: "Builder-ready story",
-    text: "The flow works as a repo, a screen recording, and a short X thread for the challenge."
+    title: "Submission-ready flow",
+    text: "The same experience works as a repo, a walkthrough video, and a short X thread for the challenge."
   }
 ];
 
