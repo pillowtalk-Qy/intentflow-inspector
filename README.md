@@ -76,6 +76,27 @@ After pushing to GitHub:
 
 The deployed demo will be available from the Pages URL shown by GitHub.
 
+## Deploy to Cloudflare Workers
+
+To get a URL like `https://intentflow-inspector.<your-subdomain>.workers.dev`, deploy the Vite build as Cloudflare Workers static assets.
+
+Recommended flow:
+
+```bash
+npm install
+npm run build
+npx wrangler login
+npm run deploy:worker
+```
+
+The Worker config is in `wrangler.jsonc`:
+
+- Worker name: `intentflow-inspector`
+- Static assets directory: `dist`
+- SPA fallback: `single-page-application`
+
+After deployment, Wrangler prints the public `workers.dev` URL.
+
 ## Live Quote and Fallback Mode
 
 The app attempts to call:
