@@ -6,7 +6,7 @@ The demo shows how a cross-chain desired outcome becomes a LI.FI Intents quote, 
 
 ## Live Demo
 
-- Demo: https://intentflow-inspector.intentflow-inspector.workers.dev/
+- Demo: https://qy-intents.intentflow-inspector.workers.dev/
 - Repository: https://github.com/pillowtalk-Qy/intentflow-inspector
 
 ## What This Demonstrates
@@ -160,7 +160,7 @@ Keep the screen recording around 2-3 minutes.
 2. Scenario: a buyer pays 10 USDC from Base, while the merchant wants settlement on Arbitrum. The UI builds an exact-input intent instead of asking the buyer to choose a bridge route.
 3. The inspector shows the request body, best quote at `quotes[0]`, `quoteId`, `validUntil`, output preview, exclusive solver signal, partial fills, and failure handling.
 4. I also added a lifecycle view, no-quote failure lab, illustrative solver lens, and copyable `curl` / TypeScript snippets so other builders can reuse the integration shape.
-5. Demo: https://intentflow-inspector.intentflow-inspector.workers.dev/
+5. Demo: https://qy-intents.intentflow-inspector.workers.dev/
 6. Repo: https://github.com/pillowtalk-Qy/intentflow-inspector
 7. Walkthrough video: add your recording link here before posting.
 
