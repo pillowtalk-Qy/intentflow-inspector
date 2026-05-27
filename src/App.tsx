@@ -57,8 +57,8 @@ export default function App() {
           </div>
           <h1>IntentFlow Inspector</h1>
           <p>
-            Inspect a merchant invoice intent from request body to live quote, solver signal, and settlement
-            lifecycle.
+            Explore how a cross-chain desired outcome becomes a LI.FI Intents quote, a solver-filled
+            delivery, and a settled order.
           </p>
         </div>
         <a className="repo-link" href="https://docs.li.fi/lifi-intents/introduction" target="_blank" rel="noreferrer">
